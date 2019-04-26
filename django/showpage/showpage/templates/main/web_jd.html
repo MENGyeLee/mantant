@@ -1,0 +1,198 @@
+!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>first web</title>
+        <link rel="stylesheet" href="{% static 'css/semantic.css'%}"  media="screen" title="no title" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+
+
+        <style type="text/css">
+            h1 {
+                font-family:'Oswald', sans-serif!important;
+                font-size:40px;
+            }
+
+            body {
+                font-family: 'Raleway', sans-serif;
+            }
+            p {
+                font-family: 'Raleway', sans-serif;
+                font-size:18px;
+            }
+            .ui.vertical.segment.masthead {
+                height: 300px;
+                background-image: url("{% static 'images/star_banner.jpg'%}");
+                background-size: cover;
+                background-position: 100% 80%;
+            }
+
+            .ui.container.segment {
+                width: 800px;
+            }
+
+            .ui.center.aligned.header.blogslogon {
+                margin-top: 40px;
+            }
+
+            .ui.center.aligned.header.blogslogon p {
+                margin-top: 10px;
+                color: white;
+                font-size: 10px;
+            }
+            .ui.container.nav {
+                width: 500px;
+            }
+
+        </style>
+        {% block css %}{% endblock%}
+        
+    </head>
+    <body>
+        <div class="ui inverted vertical  segment masthead">
+
+            <h1 class="ui center aligned header blogslogon" style="font-size:50px;font-family: 'Raleway', sans-serif!important;">
+                爬虫展示
+                <p class="ui sub header">
+                    下面为爬取数据展示。
+                </p>
+
+            </h1>
+        </div>
+        <div class="ui container nav">
+            <div class="ui borderless text three item menu ">
+                <div class="ui simple dropdown  item">
+                    加油
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="">简介</a>
+                        <a class="item" href="">简介</a>
+                    </div>
+                </div>
+                <a class="item">
+                    努力
+                </a>
+                <a class="item">
+                    简介
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui divider"></div>
+
+        {% block header %}{% endblock%}
+
+        <div  class="ui container nav" >
+
+                <br>
+               
+                <br>
+        
+                <h1>京东手机</h1> 
+               
+                <br>
+               
+                <br>
+               
+                <h3><a href='http://127.0.0.1:8000/page/main'>回到页面</a></h3>  
+               
+                <br>
+               
+                <br>
+               
+                {% for content in content_list %}
+               
+                       <h4>
+               
+                       编号：{{content.mNo}}<br>
+               
+                       图片：<br>
+               
+                       <img src="static/download/{{content.mNo}}.jpg" /><br>
+               
+                       品牌：{{content.mMark}}<br>
+               
+                       价格：{{content.mPrice}}<br>
+               
+                       简介：{{content.mNote}}<br>
+               
+                       </h4>
+               
+                       <br><br><br>
+               
+                       {% endfor %}
+               
+                {% if data %}
+                <ul id="pages" class="pagination pagination-sm pagination-xs">
+               
+                        {% if data.first %}
+                   
+                        <li><a href="?page=1">1</a></li>
+                   
+                        {% endif %}
+                   
+                        {% if data.left %}
+                   
+                        {% if data.left_has_more %}
+                   
+                        <li><span>...</span></li>
+                   
+                        {% endif %}
+                   
+                        {% for i in data.left %}
+                   
+                        <li><a href="?page={{i}}">{{i}}</a></li>
+                   
+                        {% endfor %}
+                   
+                        {% endif %}
+                   
+                        <li class="active"><a href="?page={{data.page}}">{{data.page}}</a></li>
+                   
+                        {% if data.right %}
+                   
+                        {% for i in data.right %}
+                   
+                        <li><a href="?page={{i}}">{{i}}</a></li>
+                   
+                        {% endfor %}
+                   
+                        {% if data.right_has_more %}
+                   
+                        <li><span>...</span></li>
+                   
+                        {% endif %}
+                   
+                        {% endif %}
+                   
+                        {% if data.last %}
+                   
+                        <li><a href="?page={{data.total_pages}}">{{data.total_pages}}</a></li>
+                   
+                        {% endif %}
+                   
+                </ul>
+                
+               
+                {% endif %}
+               
+                  
+               
+        </div>
+
+        {% block body  %}{% endblock%}
+        
+        <div class="ui inverted  vertical very padded  segment">
+            Mugglecoding®
+        </div>
+
+        {% block foot %}{% endblock%}
+        
+    </body>
+</html>
+
+
+
+        

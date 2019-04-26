@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>first web</title>
+        <link rel="stylesheet" href="{% static 'css/semantic.css'%}"  media="screen" title="no title" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+
+
+        <style type="text/css">
+            h1 {
+                font-family:'Oswald', sans-serif!important;
+                font-size:40px;
+            }
+
+            body {
+                font-family: 'Raleway', sans-serif;
+            }
+            p {
+                font-family: 'Raleway', sans-serif;
+                font-size:18px;
+            }
+            .ui.vertical.segment.masthead {
+                height: 300px;
+                background-image: url("{% static 'images/star_banner.jpg'%}");
+                background-size: cover;
+                background-position: 100% 80%;
+            }
+
+            .ui.container.segment {
+                width: 800px;
+            }
+
+            .ui.center.aligned.header.blogslogon {
+                margin-top: 40px;
+            }
+
+            .ui.center.aligned.header.blogslogon p {
+                margin-top: 10px;
+                color: white;
+                font-size: 10px;
+            }
+            .ui.container.nav {
+                width: 500px;
+            }
+
+        </style>
+        {% block css %}{% endblock%}
+        
+    </head>
+    <body>
+        <div class="ui inverted vertical  segment masthead">
+
+            <h1 class="ui center aligned header blogslogon" style="font-size:50px;font-family: 'Raleway', sans-serif!important;">
+                爬虫展示
+                <p class="ui sub header">
+                    下面为爬取数据展示。
+                </p>
+
+            </h1>
+        </div>
+        <div class="ui container nav">
+            <div class="ui borderless text three item menu ">
+                <div class="ui simple dropdown  item">
+                    加油
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="">简介</a>
+                        <a class="item" href="">简介</a>
+                    </div>
+                </div>
+                <a class="item">
+                    努力
+                </a>
+                <a class="item">
+                    简介
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui divider"></div>
+
+        {% block header %}{% endblock%}
+
+        <div class="ui  vertical segment">
+            <div class="ui container vertical segment">
+                <a href="#">
+                    <h1 class="ui header">
+                        介绍信息
+                    </h1>
+                </a>
+
+                <i class="icon grey small unhide"></i>
+                <p>
+                        <form >
+                                <div  class="six wide column">
+                                    <p><label >Name：李雪萌</label></p>
+                                </div>
+                                <div >
+                                    <p><label >Num：16219111337</label></p>
+                                </div>
+                                <div >
+                                    <p><label >class：16 计算机科学与技术三班</label></p>
+                                </div>
+                                <div >
+                                    <p>
+                                        <label>
+                                        Project：
+                                            include:爬取豆瓣电影、天气预报、京东商城、淘宝书包
+                                        </label>
+                                    </p>
+                                </div>
+                        </form>
+                    <a href="#">
+                        <i class="angle tiny double grey right icon">DB.MORE</i>
+                    </a>
+                </p>
+
+                <div class="ui mini  tag label">
+                     ：）
+                </div>
+            </div>
+            <div class="ui container vertical segment">
+                    <a href="#">
+                        <h1 class="ui header">
+                            豆瓣电影
+                        </h1>
+                    </a>
+    
+                    <i class="icon grey small unhide"></i>
+                    <p>
+                        介绍的是爬取静态网页，所以请求相应的URL之后，我们需要对其中的信息进行提取，这时候就需要BeautifulSoup库，它可以轻松的找出我们需要的信息，当然，有时候借助正则表达式会更快地帮助我们抽取网页中我们需要的信息。
+                        <a href="http://127.0.0.1:8000/page/db">
+                            <i class="angle tiny double grey right icon">DB.MORE</i>
+                        </a>
+                    </p>
+    
+                    <div class="ui mini  tag label">
+                         ：）
+                    </div>
+                </div>
+
+            <div class="ui container vertical segment">
+                <a href="#">
+                    <h1 class="ui header">
+                        天气信息
+                    </h1>
+                </a>
+
+                <i class="icon grey small unhide"></i>
+                <p>
+                        动态页面爬取。之所以叫动态页面爬取解析其实是相对于静态下载器与解析器来说的，因为有时候我们使用静态下载器与解析器对一些要爬取的页面进行解析时竟然没有任何数据，其实大多原因都是我们要爬取的元素是 JS 动态生成的，譬如我们爬取页面，你会发现随着我们手指上滑其页面会无限制的上拉加载更多，也就是常说的瀑布流，这时候我们就会觉得该系列前面介绍的爬取方式似乎完全无能为力了，所以我们需要寻求新的爬取解析方式，也就是动态页面爬取解析，其流行的核心主流思路是动态页面逆向分析爬取和模拟浏览器行为爬取。
+                    <a href="http://127.0.0.1:8000/page/tq">
+                        <i class="angle tiny double grey right icon">DB.MORE</i>
+                    </a>
+                </p>
+
+                <div class="ui mini  tag label">
+                    ：）
+                </div>
+            </div>
+            <div class="ui container vertical segment">
+                    <a href="#">
+                        <h1 class="ui header">
+                            京东页面
+                        </h1>
+                    </a>
+    
+                    <i class="icon grey small unhide"></i>
+                    <p>
+                       在动态页面爬取的基础上，伪装浏览器，进行爬取。爬虫与反爬虫是一场持续的斗争，在大量爬取的的过程中，使用模拟无头浏览器爬取页面信息是一种方便的方式。
+                        <a href="http://127.0.0.1:8000/page/jd">
+                            <i class="angle tiny double grey right icon">DB.MORE</i>
+                        </a>
+                    </p>
+    
+                    <div class="ui mini  tag label">
+                        ：）
+                    </div>
+            </div>
+            <div class="ui container vertical segment">
+                    <a href="#">
+                        <h1 class="ui header">
+                            淘宝书包
+                        </h1>
+                    </a>
+    
+                    <i class="icon grey small unhide"></i>
+                    <p>
+                        使用正则表达式等解析页面信息经行爬取，注：淘宝的robot协议是禁止任何浏览器爬取的。
+                        <a href="http://127.0.0.1:8000/page/tb">
+                            <i class="angle tiny double grey right icon">DB.MORE</i>
+                        </a>
+                    </p>
+    
+                    <div class="ui mini  tag label">
+                        ：）
+                    </div>
+            </div>
+
+
+        </div>
+
+        {% block body  %}{% endblock%}
+        
+        <div class="ui inverted  vertical very padded  segment">
+            Mugglecoding®
+        </div>
+
+        {% block foot %}{% endblock%}
+        
+    </body>
+</html>
