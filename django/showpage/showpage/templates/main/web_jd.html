@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 {% load staticfiles %}
 <html>
     <head>
@@ -102,27 +102,32 @@
                
                 <br>
                
-                {% for content in content_list %}
-               
-                       <h4>
-               
-                       编号：{{content.mNo}}<br>
-               
-                       图片：<br>
-               
-                       <img src="static/download/{{content.mNo}}.jpg" /><br>
-               
-                       品牌：{{content.mMark}}<br>
-               
-                       价格：{{content.mPrice}}<br>
-               
-                       简介：{{content.mNote}}<br>
-               
-                       </h4>
-               
-                       <br><br><br>
-               
-                       {% endfor %}
+            
+            {% for content in content_list %}
+
+            <h4>
+
+            编号：{{content.mNo}}<br>
+
+            品牌：{{content.mMark}}<br>
+
+            价格：{{content.mPrice}}<br>
+
+            简介：{{content.mNote}}<br>
+
+            图片：<br>
+
+            <img src="static/download/{{content.mNo}}.jpg" /><br>
+
+            </h4>
+
+            <br><br><br>
+
+             {% endfor %}
+            
+
+
+                
                
                 {% if data %}
                 <ul id="pages" class="pagination pagination-sm pagination-xs">

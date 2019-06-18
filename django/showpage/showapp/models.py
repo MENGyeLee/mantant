@@ -5,7 +5,7 @@ class Test1(models.Model):
     name = models.CharField(max_length=20)
 
 
-class movie(models.Model):
+class movies(models.Model):
     content = models.CharField(max_length=4000)
     objects=models.Manager()
 

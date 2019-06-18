@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="w-100">
+
+            <h3>TOP250电影数据</h3>
+      
+              <table  class="table table-bordered" >
+      
+          <tr>
+      
+              <th>排名</th>
+      
+              <th>电影名</th>
+      
+          </tr>
+      
+  
+          {% for list1 in content_list %}
+      
+          <tr>
+      
+              <td>{{list1.id}}</td>
+      
+              <td>{{list1.content}}</td>
+      
+          </tr>
+      
+          {% endfor %}
+      
+          </table>
+      
+      
+      
+            </div> 
+    </body>
+</html>

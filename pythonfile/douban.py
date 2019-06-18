@@ -29,7 +29,7 @@ if __name__=="__main__":
     result=get_all_page(0,10)
     
     for i in range(len(result)):
-        cursor.execute("INSERT INTO test(No,content) values(%d,'%s')" %(i+1,result[i]))
+        cursor.execute("INSERT INTO movies(id,content) values(%d,'%s')" %(i+1,result[i]))
     cursor.close()
     con.commit()
     con.close()
